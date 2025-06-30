@@ -34,8 +34,8 @@ A Node.js web application for managing equipment check-ins in CEE labs using QR 
    ```
 
 3. **Access the Application**
-   - Main page: http://localhost:3000
-   - Admin panel: http://localhost:3000/admin
+   - Main page: http://localhost:5000
+   - Admin panel: http://localhost:5000/admin
 
 ## Usage
 
