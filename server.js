@@ -2,7 +2,7 @@ const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const QRCode = require('qrcode');
 const bodyParser = require('body-parser');
-const moment = require('moment');
+const moment = require('moment-timezone');
 const path = require('path');
 const fs = require('fs');
 
@@ -93,6 +93,7 @@ app.post('/checkin/:serialNumber', (req, res) => {
         return res.status(400).json({ success: false, message: 'All fields are required' });
     }
     
+    // Use timezone-aware moment
     const now = moment();
     const checkinDate = now.format('YYYY-MM-DD');
     const checkinTime = now.format('HH:mm:ss');
