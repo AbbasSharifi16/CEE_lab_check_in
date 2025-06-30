@@ -9,6 +9,9 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3005;
 
+// Set timezone configuration for New York
+const TIMEZONE = 'America/New_York';
+
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -93,8 +96,8 @@ app.post('/checkin/:serialNumber', (req, res) => {
         return res.status(400).json({ success: false, message: 'All fields are required' });
     }
     
-    // Use timezone-aware moment
-    const now = moment();
+    // Use timezone-aware moment for New York time
+    const now = moment().tz(TIMEZONE);
     const checkinDate = now.format('YYYY-MM-DD');
     const checkinTime = now.format('HH:mm:ss');
     
